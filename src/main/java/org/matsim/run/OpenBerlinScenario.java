@@ -8,6 +8,9 @@ import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.TransportMode;
 import org.matsim.application.MATSimApplication;
 import org.matsim.application.options.SampleOptions;
+import org.matsim.contrib.roadpricing.RoadPricingConfigGroup;
+import org.matsim.contrib.roadpricing.RoadPricingModule;
+import org.matsim.contrib.roadpricing.RoadPricingUtils;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.config.groups.ReplanningConfigGroup;
@@ -46,6 +49,8 @@ public class OpenBerlinScenario extends MATSimApplication {
 
 	@Override
 	protected Config prepareConfig(Config config) {
+
+		RoadPricingConfigGroup roadPricingConfigGroup = ConfigUtils.addOrGetModule(config, RoadPricingConfigGroup.class);
 
 		SimWrapperConfigGroup sw = ConfigUtils.addOrGetModule(config, SimWrapperConfigGroup.class);
 
@@ -114,6 +119,8 @@ public class OpenBerlinScenario extends MATSimApplication {
 	protected void prepareControler(Controler controler) {
 
 		controler.addOverridingModule(new SimWrapperModule());
+
+		controler.addOverridingModule(new RoadPricingModule());
 
 		controler.addOverridingModule(new TravelTimeBinding());
 

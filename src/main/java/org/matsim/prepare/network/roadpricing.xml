@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<roadpricing>
+    <description>Maut für das Zentrum Berlins</description>
+	<type>area</type>
+ <!--  <links>
+  //      <link id="1001" />
+  //      <link id="1002" />
+  //      Fügen Sie die Link-IDs der Straßen hinzu, auf denen Maut erhoben werden soll
+  //  </links> -->
+
+    <costs>
+        <cost start_time="06:00:00" end_time="10:00:00" amount="5.00" />
+        <cost start_time="16:00:00" end_time="19:00:00" amount="5.00" />
+    </costs>
+</roadpricing>
