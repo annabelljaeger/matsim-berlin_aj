@@ -67,7 +67,7 @@
 		<param name="usePersonIdForMissingVehicleId" value="false"/>
 	</module>
 	<module name="roadpricing">
-		<param name ="enforcementEfficiency" value="0.9"/>
+		<param name ="enforcementEfficiency" value="0.8"/>
 		<param name="tollLinksFile" value="C:\Users\jamps\MatSim\Hausaufgabe2\src\main\java\org\matsim\prepare\network\toll.xml"/>
 	</module>
 
