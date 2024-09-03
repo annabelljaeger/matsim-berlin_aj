@@ -40,18 +40,19 @@ import java.util.List;
 public class CreateRoadPricingXml {
     public static void main (String[] args) {
 //        String zoneShpFile = "https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/de/berlin/projects/avoev/shp-files/shp-berlin-bezirksregionen/berlin-bezirksregion_GK4_fixed.shp";
-        String zoneShpFile = "https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/de/berlin/projects/avoev/shp-files/shp-inner-city-area/inner-city-area.shp";
-        String zoneShpCRS = "EPSG:31468";
+ //       String zoneShpFile = "https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/de/berlin/projects/avoev/shp-files/shp-inner-city-area/inner-city-area.shp";
+		String zoneShpFile = "input/v6.1/hundekopf/hundekopf25832eineForm.shp";
+        String zoneShpCRS = "EPSG:25832";
 //        String outputFile = "berlin_distance_roadpricing.xml";
-        String outputFile = "berlin_cordon_roadpricing.xml";
+        String outputFile = "berlin_distanceAndTime_roadpricing.xml";
         if (args.length == 0) {
-            args = new String[]{"scenarios/berlin-v5.5-1pct/input/berlin-v5.5-1pct.config.xml"};
+            args = new String[]{"input/v6.1/berlin-v6.1.config.xml"};
         }
         Config config =  RunBerlinScenario.prepareConfig( args ) ;
         Scenario scenario = RunBerlinScenario.prepareScenario( config ) ;
 
-//        createDistanceCostRoadPricingXml(scenario, zoneShpFile, zoneShpCRS, outputFile);
-        createCordonRoadPricingXml(scenario, zoneShpFile, zoneShpCRS, outputFile);
+        createDistanceCostRoadPricingXml(scenario, zoneShpFile, zoneShpCRS, outputFile);
+ //       createCordonRoadPricingXml(scenario, zoneShpFile, zoneShpCRS, outputFile);
     }
 
     static void createDistanceCostRoadPricingXml(Scenario scenario, String zoneShpFile, String shapeFileCRS, String outputFile) {
@@ -78,7 +79,8 @@ public class CreateRoadPricingXml {
         RoadPricingUtils.createAndAddGeneralCost(scheme,
                 Time.parseTime("00:00:00"),
                 Time.parseTime("30:00:00"),
-                0.00005);
+	  0.005);
+      //          0.00005);
 
         RoadPricingWriterXMLv1 writer = new RoadPricingWriterXMLv1(scheme);
         writer.writeFile(outputFile);
