@@ -7,9 +7,10 @@
 	</module>
 	<module name="controller">
 		<param name="lastIteration" value="2"/>
-		<param name="overwriteFiles" value="deleteDirectoryIfExists"/>
+	<!--	<param name="overwriteFiles" value="deleteDirectoryIfExists"/> -->
+		<param name="overwriteFiles" value="failIfDirectoryExists"/>
 		<param name="runId" value="berlin-v6.1"/>
-		<param name="outputDirectory" value="./output/berlin-v6.1-0.1pct/2Iters"/>
+		<param name="outputDirectory" value="./output/berlin-v6.1-0.1pct/2ItersOhneMaut"/>
 		<param name="writeEventsInterval" value="100"/>
 		<param name="writePlansInterval" value="100"/>
 		<param name="routingAlgorithmType" value="SpeedyALT"/>
@@ -66,10 +67,12 @@
 		<param name="insertingWaitingVehiclesBeforeDrivingVehicles" value="true"/>
 		<param name="usePersonIdForMissingVehicleId" value="false"/>
 	</module>
+
 	<module name="roadpricing">
-		<param name ="enforcementEfficiency" value="0.6"/>
-		<param name="tollLinksFile" value="C:\Users\jamps\MatSim\Hausaufgabe2\src\main\java\org\matsim\prepare\network\toll.xml"/>
+		<param name ="enforcementEfficiency" value="0.9"/>
+		<param name="tollLinksFile" value="berlin_noToll_roadpricing.xml"/>
 	</module>
+
 
 
 	<module name="subtourModeChoice">

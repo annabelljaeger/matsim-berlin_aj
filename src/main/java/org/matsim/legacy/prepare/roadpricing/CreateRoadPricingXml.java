@@ -44,15 +44,15 @@ public class CreateRoadPricingXml {
 		String zoneShpFile = "input/v6.1/hundekopf/hundekopf25832eineForm.shp";
         String zoneShpCRS = "EPSG:25832";
 //        String outputFile = "berlin_distance_roadpricing.xml";
-        String outputFile = "berlin_distanceAndTime_roadpricing.xml";
+        String outputFile = "berlin_noToll_roadpricing.xml";
         if (args.length == 0) {
             args = new String[]{"input/v6.1/berlin-v6.1.config.xml"};
         }
         Config config =  RunBerlinScenario.prepareConfig( args ) ;
         Scenario scenario = RunBerlinScenario.prepareScenario( config ) ;
 
-        createDistanceCostRoadPricingXml(scenario, zoneShpFile, zoneShpCRS, outputFile);
- //       createCordonRoadPricingXml(scenario, zoneShpFile, zoneShpCRS, outputFile);
+  //      createDistanceCostRoadPricingXml(scenario, zoneShpFile, zoneShpCRS, outputFile);
+        createCordonRoadPricingXml(scenario, zoneShpFile, zoneShpCRS, outputFile);
     }
 
     static void createDistanceCostRoadPricingXml(Scenario scenario, String zoneShpFile, String shapeFileCRS, String outputFile) {
@@ -109,8 +109,8 @@ public class CreateRoadPricingXml {
 
         RoadPricingUtils.createAndAddGeneralCost(scheme,
                 Time.parseTime("00:00:00"),
-                Time.parseTime("30:00:00"),
-                5.0);
+                Time.parseTime("00:00:05"),
+                0.0);
 
         RoadPricingWriterXMLv1 writer = new RoadPricingWriterXMLv1(scheme);
         writer.writeFile(outputFile);
