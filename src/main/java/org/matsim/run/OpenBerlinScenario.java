@@ -31,7 +31,7 @@ import java.util.List;
 @CommandLine.Command(header = ":: Open Berlin Scenario ::", version = OpenBerlinScenario.VERSION, mixinStandardHelpOptions = true)
 public class OpenBerlinScenario extends MATSimApplication {
 
-	public static final String VERSION = "6.3";
+	public static final String VERSION = "6.1";
 	public static final String CRS = "EPSG:25832";
 
 	private static final Logger log = LogManager.getLogger(RunOpenBerlinCalibration.class);
@@ -40,7 +40,7 @@ public class OpenBerlinScenario extends MATSimApplication {
 	private final SampleOptions sample = new SampleOptions(10, 25, 3, 1);
 
 	public OpenBerlinScenario() {
-		super(String.format("input/v%s/berlin-v%s.config.xml", VERSION, VERSION));
+		super(String.format("input/v%s/berlin-v%s.config_felix.xml", VERSION, VERSION));
 	}
 
 	public static void main(String[] args) {
