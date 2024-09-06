@@ -279,13 +279,13 @@
 			<artifactId>commons-rng-simple</artifactId>
 			<version>1.5</version>
 		</dependency>
-
+<!--
 		<dependency>
 			<groupId>org.geotools</groupId>
 			<artifactId>gt-shapefile</artifactId>
 			<version>24.1</version>
 		</dependency>
-
+-->
 		<!-- Include the JUnit testing library.  Not transitive. -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>

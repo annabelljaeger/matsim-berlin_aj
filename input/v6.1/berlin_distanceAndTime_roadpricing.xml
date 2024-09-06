@@ -18507,5 +18507,10 @@
 		<link id="3627"/>
 	</links>
 	<!-- amount: [monetary unit] / [link length unit] -->
-	<cost start_time="00:00:00" end_time="30:00:00" amount="0.005" />
+	<cost start_time="00:00:00" end_time="05:30:00" amount="0.0004" />
+	<cost start_time="05:30:00" end_time="09:00:00" amount="0.003" />
+	<cost start_time="09:00:00" end_time="14:00:00" amount="0.0015" />
+	<cost start_time="14:00:00" end_time="18:00:00" amount="0.003" />
+	<cost start_time="18:00:00" end_time="20:00:00" amount="0.0015" />
+	<cost start_time="20:00:00" end_time="30:00:00" amount="0.0004" />
 </roadpricing>
