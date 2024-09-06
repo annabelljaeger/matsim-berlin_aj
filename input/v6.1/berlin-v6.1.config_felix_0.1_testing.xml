@@ -8,16 +8,16 @@
 	<module name="controller">
 		<param name="lastIteration" value="2"/>
 		<param name="overwriteFiles" value="deleteDirectoryIfExists"/>
-		<param name="runId" value="berlin-v6.1-bike-test"/>
-		<param name="outputDirectory" value="./output/berlin-v6.1-bike-test-0.1pct-v0.0"/>
-		<param name="writeEventsInterval" value="100"/>
-		<param name="writePlansInterval" value="100"/>
+		<param name="runId" value="berlin-v6.1-bike-test-0.1pct"/>
+		<param name="outputDirectory" value="./output/berlin-v6.1-run-test-0.1pct"/>
+		<param name="writeEventsInterval" value="2"/>
+		<param name="writePlansInterval" value="2"/>
 		<param name="routingAlgorithmType" value="SpeedyALT"/>
 	</module>
 	<module name="global">
 		<param name="coordinateSystem" value="EPSG:25832"/>
 		<param name="insistingOnDeprecatedConfigVersion" value="false"/>
-		<param name="numberOfThreads" value="16"/>
+		<param name="numberOfThreads" value="10"/>
 	</module>
 	<module name="network">
 		<param name="inputNetworkFile" value="./berlin-v6.1-network-bike-e_bike-added.xml.gz"/>
@@ -58,12 +58,12 @@
 		<param name="mainMode" value="car,truck,freight"/>
 		<param name="flowCapacityFactor" value="0.001"/>
 		<param name="storageCapacityFactor" value="0.001"/>
-		<param name="numberOfThreads" value="16"/>
+		<param name="numberOfThreads" value="10"/>
 		<param name="startTime" value="00:00:00"/>
 		<param name="endTime" value="36:00:00"/>
 		<param name="stuckTime" value="30.0"/>
-<!--		<param name="trafficDynamics" value="kinematicWaves"/>-->
-		<param name="linkDynamics" value="PassingQ"/>
+		<param name="trafficDynamics" value="kinematicWaves"/>
+	<!--<param name="linkDynamics" value="PassingQ"/>-->
 		<param name="vehiclesSource" value="modeVehicleTypesFromVehiclesData"/>
 		<param name="insertingWaitingVehiclesBeforeDrivingVehicles" value="true"/>
 		<param name="usePersonIdForMissingVehicleId" value="false"/>
@@ -121,7 +121,11 @@
 			<param name="performing" value="6.88"/>
 
 			<parameterset type="modeParams">
-				<param name="constant" value="-0.6269580844054548" />
+<!--
+				constants were updated by vsp, old values in comments for comparison
+-->
+				<!--<param name="constant" value="-0.6269580844054548" />-->
+				<param name="constant" value="-0.7904891983040987" />
 				<!-- result of the calibration, lower than full vehicle ownership cost which gave too unattractive car mode in calibration -->
 				<param name="dailyMonetaryConstant" value="-3.0" />
 				<param name="dailyUtilityConstant" value="0" />
@@ -132,7 +136,8 @@
 				<param name="mode" value="car" />
 			</parameterset>
 			<parameterset type="modeParams">
-				<param name="constant" value="-1.3788242711735" />
+				<!--<param name="constant" value="-1.3788242711735" />-->
+				<param name="constant" value="-1.0293490257513975" />
 				<param name="dailyMonetaryConstant" value="0.0" />
 				<param name="dailyUtilityConstant" value="0.0" />
 				<param name="marginalUtilityOfDistance_util_m" value="0.0" />
@@ -144,7 +149,8 @@
 				<param name="mode" value="ride" />
 			</parameterset>
 			<parameterset type="modeParams">
-				<param name="constant" value="-0.24909103628514367" />
+				<!--<param name="constant" value="-0.24909103628514367" />-->
+				<param name="constant" value="0.32909137835098523" />
 				<!-- 2022: 4-trips AB 10Euro -> 2.5 Eu/trip. yearly 761 Eu / 250 days = 3.04 Eu/day -->
 				<param name="dailyMonetaryConstant" value="-3.0" />
 				<param name="dailyUtilityConstant" value="0.0" />
@@ -154,7 +160,8 @@
 				<param name="mode" value="pt" />
 			</parameterset>
 			<parameterset type="modeParams">
-				<param name="constant" value="-2.2321797854695955" />
+				<!-- like an expensive bike -->
+				<param name="constant" value="-2" />
 				<param name="dailyMonetaryConstant" value="0.0" />
 				<param name="dailyUtilityConstant" value="0.0" />
 				<param name="marginalUtilityOfDistance_util_m" value="0.0" />
@@ -163,7 +170,8 @@
 				<param name="mode" value="e-bike" />
 			</parameterset>
 			<parameterset type="modeParams">
-				<param name="constant" value="-2.2321797854695955" />
+				<!--<param name="constant" value="-2.2321797854695955" />-->
+				<param name="constant" value="-1.7377577082420756" />
 				<param name="dailyMonetaryConstant" value="0.0" />
 				<param name="dailyUtilityConstant" value="0.0" />
 				<param name="marginalUtilityOfDistance_util_m" value="0.0" />
@@ -220,7 +228,7 @@
 	</module>
 
 	<module name="replanning">
-		<param name="fractionOfIterationsToDisableInnovation" value="0.8"/>
+		<param name="fractionOfIterationsToDisableInnovation" value="0.9"/>
 		<!-- Strategies are added in code -->
 	</module>
 

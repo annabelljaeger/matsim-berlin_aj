@@ -40,7 +40,7 @@ public class OpenBerlinScenario extends MATSimApplication {
 	private final SampleOptions sample = new SampleOptions(10, 25, 3, 1);
 
 	public OpenBerlinScenario() {
-		super(String.format("input/v%s/berlin-v%s.config_felix.xml", VERSION, VERSION));
+		super(String.format("input/v%s/berlin-v%s.config_felix_0.1_testing.xml", VERSION, VERSION));
 	}
 
 	public static void main(String[] args) {
