@@ -1,4 +1,5 @@
-package org.matsim.analysisHA2;
+/*
+// package org.matsim.analysisHA2;
 
 
 
@@ -20,7 +21,6 @@ import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.utils.gis.ShapeFileWriter;
 import org.matsim.core.utils.io.IOUtils;
-import org.matsim.prepare.MexicoCityUtils;
 import org.matsim.simwrapper.SimWrapperConfigGroup;
 import picocli.CommandLine;
 import tech.tablesaw.aggregate.AggregateFunctions;
@@ -97,7 +97,6 @@ import static tech.tablesaw.aggregate.AggregateFunctions.*;
 			Table filtered = moneyEvents.where(Selection.with(idx.toIntArray()));
 
 			double totalToll = (double) filtered.summarize(amount, AggregateFunctions.sum).apply().column("Sum [amount]").get(0);
-			double medianTollPaid = BerlinCityUtils.calcMedian(filtered.doubleColumn(amount).asList());
 			double meanTollPaid = totalToll / filtered.rowCount();
 
 			DecimalFormat f = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.ENGLISH));
@@ -273,3 +272,4 @@ import static tech.tablesaw.aggregate.AggregateFunctions.*;
 			return Integer.parseInt(s.split(regex)[0]);
 		}
 	}
+*/

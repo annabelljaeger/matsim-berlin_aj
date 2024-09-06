@@ -1,3 +1,4 @@
+/*
 package org.matsim.analysisHA2;
 
 import org.matsim.api.core.v01.Scenario;
@@ -109,3 +110,4 @@ public class Netzauslastung15minInt implements LinkEnterEventHandler {
 		}
 	}
 }
+*/
