@@ -11,7 +11,7 @@
 		</attributes>
 		<length meter="2.5"/>
 		<width meter="1.0"/>
-		<maximumVelocity meterPerSecond="5.0"/>
+		<maximumVelocity meterPerSecond="4.5"/>
 		<passengerCarEquivalents pce="0.3"/>
 		<flowEfficiencyFactor factor="1.0"/>
 	</vehicleType>
