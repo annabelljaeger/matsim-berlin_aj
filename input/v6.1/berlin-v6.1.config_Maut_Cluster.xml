@@ -6,12 +6,12 @@
 		<param name="mutateAroundInitialEndTimeOnly" value="true"/>
 	</module>
 	<module name="controller">
-		<param name="lastIteration" value="350"/>
+		<param name="lastIteration" value="400"/>
 		<param name="overwriteFiles" value="failIfDirectoryExists"/>
-		<param name="runId" value="berlin-v6.1-bike-cluster-500"/>
-		<param name="outputDirectory" value="./output/berlin-v6.1-cluster-Maut-acc400IT-10pct_Test"/>
-		<param name="writeEventsInterval" value="100"/>
-		<param name="writePlansInterval" value="100"/>
+		<param name="runId" value="berlin-v6.1-maut-400"/>
+		<param name="outputDirectory" value="./output/berlin-v6.1-cluster-Maut-400IT-10pct"/>
+		<param name="writeEventsInterval" value="50"/>
+		<param name="writePlansInterval" value="50"/>
 		<param name="routingAlgorithmType" value="SpeedyALT"/>
 	</module>
 	<module name="global">
@@ -28,7 +28,7 @@
 	</module>
 	<module name="vehicles">
 		<param name="vehiclesFile"
-			   value="./berlin-v6.1-vehicleTypes-bike-added.xml"/>
+			   value="./berlin-v6.1-vehicleTypes-bike-added2.xml"/>
 	</module>
 	<module name="transit">
 		<param name="transitScheduleFile" value="./berlin-v6.1-transitSchedule.xml.gz"/>
