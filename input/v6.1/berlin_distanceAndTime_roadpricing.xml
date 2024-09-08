@@ -18512,5 +18512,5 @@
 	<cost start_time="09:15:00" end_time="16:30:00" amount="0.0015" />
 	<cost start_time="16:30:00" end_time="18:15:00" amount="0.003" />
 	<cost start_time="18:15:00" end_time="20:00:00" amount="0.0015" />
-	<cost start_time="20:00:00" end_time="30:00:00" amount="0.0004" />
+	<cost start_time="20:00:00" end_time="36:00:00" amount="0.0004" />
 </roadpricing>

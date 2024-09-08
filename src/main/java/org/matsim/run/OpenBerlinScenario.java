@@ -40,7 +40,7 @@ public class OpenBerlinScenario extends MATSimApplication {
 	private final SampleOptions sample = new SampleOptions(10, 25, 3, 1);
 
 	public OpenBerlinScenario() {
-		super(String.format("input/v%s/berlin-v%s.config_Maut.xml", VERSION, VERSION));
+		super(String.format("input/v%s/berlin-v%s.config_Maut_Cluster.xml", VERSION, VERSION));
 	}
 
 	public static void main(String[] args) {
