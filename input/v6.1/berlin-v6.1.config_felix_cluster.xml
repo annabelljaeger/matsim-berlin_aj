@@ -6,12 +6,12 @@
 		<param name="mutateAroundInitialEndTimeOnly" value="true"/>
 	</module>
 	<module name="controller">
-		<param name="lastIteration" value="350"/>
+		<param name="lastIteration" value="400"/>
 		<param name="overwriteFiles" value="failIfDirectoryExists"/>
-		<param name="runId" value="berlin-v6.1-bike-cluster-500"/>
-		<param name="outputDirectory" value="./output/berlin-v6.1-cluster-first-acc400IT-10pct"/>
-		<param name="writeEventsInterval" value="100"/>
-		<param name="writePlansInterval" value="100"/>
+		<param name="runId" value="berlin-v6.1-bike-cluster-base-fixing-too-much-bike-400"/>
+		<param name="outputDirectory" value="./output/berlin-v6.1-bike-cluster-base-fixing-too-much-bike-400"/>
+		<param name="writeEventsInterval" value="50"/>
+		<param name="writePlansInterval" value="50"/>
 		<param name="routingAlgorithmType" value="SpeedyALT"/>
 	</module>
 	<module name="global">
@@ -23,7 +23,7 @@
 		<param name="inputNetworkFile" value="./berlin-v6.1-network-bike-e_bike-added.xml.gz"/>
 	</module>
 	<module name="plans">
-		<param name="inputPlansFile" value="./berlin-v6.1-bike-first-50.output_plans.xml.gz"/>
+		<param name="inputPlansFile" value="./berlin-v6.1-bike-cluster-500.200.plans.xml.gz"/>
 		<param name="removingUnnecessaryPlanAttributes" value="true"/>
 	</module>
 	<module name="vehicles">
