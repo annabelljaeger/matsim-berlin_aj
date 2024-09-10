@@ -39,6 +39,14 @@
 			<version>${matsim.version}</version>
 		</dependency>
 
+		<!-- MATSim bicycle contrib -->
+		<dependency>
+			<groupId>org.matsim.contrib</groupId>
+			<artifactId>bicycle</artifactId>
+			<version>${matsim.version}</version> <!-- Use the same version as MATSim -->
+		</dependency>
+	</dependencies>
+
 		<dependency>
 			<groupId>org.matsim.contrib</groupId>
 			<artifactId>dvrp</artifactId>

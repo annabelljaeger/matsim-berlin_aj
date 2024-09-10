@@ -8,6 +8,7 @@ import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.TransportMode;
 import org.matsim.application.MATSimApplication;
 import org.matsim.application.options.SampleOptions;
+import org.matsim.contrib.bicycle.BicycleModule;
 import org.matsim.contrib.roadpricing.RoadPricingConfigGroup;
 import org.matsim.contrib.roadpricing.RoadPricingModule;
 import org.matsim.contrib.roadpricing.RoadPricingUtils;
@@ -115,6 +116,8 @@ public class OpenBerlinScenario extends MATSimApplication {
 		controler.addOverridingModule(new SimWrapperModule());
 
 		controler.addOverridingModule(new RoadPricingModule());
+
+		controler.addOverridingModule(new BicycleModule());
 
 		controler.addOverridingModule(new TravelTimeBinding());
 
