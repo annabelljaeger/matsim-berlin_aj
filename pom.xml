@@ -32,19 +32,19 @@
 
 	<dependencies>
 
-		<!-- This is the matsim "core": -->
+		<!--This is the matsim "core": -->
 		<dependency>
 			<groupId>org.matsim</groupId>
 			<artifactId>matsim</artifactId>
 			<version>${matsim.version}</version>
-		</dependency>
+		</dependency>-->
 
 		<!-- MATSim bicycle contrib -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.matsim.contrib</groupId>
 			<artifactId>bicycle</artifactId>
-			<version>${matsim.version}</version> <!-- Use the same version as MATSim -->
-		</dependency>
+			<version>${matsim.version}</version> &lt;!&ndash; Use the same version as MATSim &ndash;&gt;
+		</dependency>-->
 	</dependencies>
 
 		<dependency>

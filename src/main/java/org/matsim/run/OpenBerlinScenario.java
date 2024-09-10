@@ -117,7 +117,7 @@ public class OpenBerlinScenario extends MATSimApplication {
 
 		controler.addOverridingModule(new RoadPricingModule());
 
-		controler.addOverridingModule(new BicycleModule());
+		/*controler.addOverridingModule(new BicycleModule());*/
 
 		controler.addOverridingModule(new TravelTimeBinding());
 
