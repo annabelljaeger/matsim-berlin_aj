@@ -228,7 +228,7 @@
 	</module>
 
 	<module name="replanning">
-		<param name="fractionOfIterationsToDisableInnovation" value="0.85"/>
+		<param name="fractionOfIterationsToDisableInnovation" value="0.9"/>
 		<!-- Strategies are added in code -->
 	</module>
 
