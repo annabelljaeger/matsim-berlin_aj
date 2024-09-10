@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Pfad zur Datei im aktuellen Verzeichnis des Skripts
 script_dir = os.path.dirname(__file__)
-output_file_path = os.path.join(script_dir, 'trips_with_person_info_BaseCase_Cluster400.csv.gz')
+output_file_path = os.path.join(script_dir, 'trips_with_person_info_Maut_ClusterUnfertig300.csv.gz')
 
 # CSV-Datei laden
 trips_df = pd.read_csv(output_file_path)
@@ -15,6 +15,11 @@ mode_distribution = trips_df.groupby(['income', 'main_mode']).size().unstack(fil
 # Berechnung der Prozentsätze
 mode_distribution_percent = mode_distribution.div(mode_distribution.sum(axis=1), axis=0) * 100
 
+# Speichern der berechneten Prozentsätze als CSV-Datei
+result_file_path = os.path.join(script_dir, 'income_main_mode_distribution_Maut_ClusterUnfertig300.csv')
+mode_distribution_percent.to_csv(result_file_path)
+
+print(f"Tabelle mit dem Anteil jedes 'main_mode' in jeder 'income'-Gruppe erfolgreich gespeichert als '{result_file_path}'")
 
 # Diagramm erstellen
 ax = mode_distribution_percent.plot(kind='bar', stacked=True, figsize=(12, 8), colormap='tab20')
@@ -29,7 +34,7 @@ for container in ax.containers:
     ax.bar_label(container, fmt='%.1f%%', label_type='center')
 
 # Diagramm speichern
-chart_file_path = os.path.join(script_dir, 'income_main_mode_distribution_BaseCase_Cluster400_new.png')
+chart_file_path = os.path.join(script_dir, 'income_main_mode_distribution_Maut_ClusterUnfertig300.png')
 plt.savefig(chart_file_path)
 
-print("Diagramm erfolgreich gespeichert als 'income_main_mode_distribution.png'")
+print(f"Diagramm erfolgreich gespeichert als '{chart_file_path}'")
