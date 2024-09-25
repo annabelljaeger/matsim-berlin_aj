@@ -15,7 +15,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.matsim-scenarios</groupId>
 	<artifactId>matsim-berlin</artifactId>
-	<version>6.3</version>
+	<version>6.1</version>
 
 	<name>MATSim Open Berlin scenario</name>
 	<description>MATSim Open Berlin scenario</description>
@@ -32,20 +32,19 @@
 
 	<dependencies>
 
-		<!--This is the matsim "core": -->
+		<!-- This is the matsim "core": -->
 		<dependency>
 			<groupId>org.matsim</groupId>
 			<artifactId>matsim</artifactId>
 			<version>${matsim.version}</version>
-		</dependency>-->
+		</dependency>
 
 		<!-- MATSim bicycle contrib -->
-		<!--<dependency>
+		<dependency>
 			<groupId>org.matsim.contrib</groupId>
 			<artifactId>bicycle</artifactId>
-			<version>${matsim.version}</version> &lt;!&ndash; Use the same version as MATSim &ndash;&gt;
-		</dependency>-->
-	</dependencies>
+			<version>${matsim.version}</version> <!-- Use the same version as MATSim -->
+		</dependency>
 
 		<dependency>
 			<groupId>org.matsim.contrib</groupId>
