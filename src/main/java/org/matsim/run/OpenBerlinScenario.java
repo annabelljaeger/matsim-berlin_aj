@@ -8,6 +8,7 @@ import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.TransportMode;
 import org.matsim.application.MATSimApplication;
 import org.matsim.application.options.SampleOptions;
+import org.matsim.contrib.bicycle.BicycleConfigGroup;
 import org.matsim.contrib.bicycle.BicycleModule;
 import org.matsim.contrib.roadpricing.RoadPricingConfigGroup;
 import org.matsim.contrib.roadpricing.RoadPricingModule;
@@ -52,6 +53,11 @@ public class OpenBerlinScenario extends MATSimApplication {
 	protected Config prepareConfig(Config config) {
 
 		RoadPricingConfigGroup roadPricingConfigGroup = ConfigUtils.addOrGetModule(config, RoadPricingConfigGroup.class);
+
+		BicycleConfigGroup bicycleConfig = ConfigUtils.addOrGetModule(config, BicycleConfigGroup.class);
+
+		bicycleConfig.setBicycleMode("bike");
+		bicycleConfig.setBicycleMode("e-bike");
 
 		SimWrapperConfigGroup sw = ConfigUtils.addOrGetModule(config, SimWrapperConfigGroup.class);
 

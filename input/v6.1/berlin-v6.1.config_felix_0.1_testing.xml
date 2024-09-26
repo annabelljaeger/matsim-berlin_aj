@@ -6,21 +6,21 @@
 		<param name="mutateAroundInitialEndTimeOnly" value="true"/>
 	</module>
 	<module name="controller">
-		<param name="lastIteration" value="2"/>
+		<param name="lastIteration" value="50"/>
 		<param name="overwriteFiles" value="deleteDirectoryIfExists"/>
 		<param name="runId" value="berlin-v6.1-bike-test-0.1pct"/>
-		<param name="outputDirectory" value="./output/berlin-v6.1-run-test-0.1pct"/>
-		<param name="writeEventsInterval" value="2"/>
-		<param name="writePlansInterval" value="2"/>
+		<param name="outputDirectory" value="./output/berlin-v6.1-run-rsv-test-0.1pct"/>
+		<param name="writeEventsInterval" value="25"/>
+		<param name="writePlansInterval" value="25"/>
 		<param name="routingAlgorithmType" value="SpeedyALT"/>
 	</module>
 	<module name="global">
 		<param name="coordinateSystem" value="EPSG:25832"/>
 		<param name="insistingOnDeprecatedConfigVersion" value="false"/>
-		<param name="numberOfThreads" value="10"/>
+		<param name="numberOfThreads" value="40"/>
 	</module>
 	<module name="network">
-		<param name="inputNetworkFile" value="./berlin-v6.1-network-bike-e_bike-added.xml.gz"/>
+		<param name="inputNetworkFile" value="./berlin-v6.1-network-rsv.xml.gz"/>
 	</module>
 	<module name="plans">
 		<param name="inputPlansFile" value="./berlin-v6.1-0.1pct.plans.xml.gz"/>
@@ -42,7 +42,7 @@
 	<module name="routing">
 		<param name="networkModes" value="car,truck,freight,ride,bike,e-bike"/>
 		<param name="accessEgressType" value="accessEgressModeToLink"/>
-	<!--	<parameterset type="teleportedModeParameters">
+		<!--<parameterset type="teleportedModeParameters">
 			<param name="beelineDistanceFactor" value="null"/>
 			<param name="mode" value="bike"/>
 			<param name="teleportedModeSpeed" value="null"/>
@@ -58,7 +58,7 @@
 		<param name="mainMode" value="car,truck,freight"/>
 		<param name="flowCapacityFactor" value="0.001"/>
 		<param name="storageCapacityFactor" value="0.001"/>
-		<param name="numberOfThreads" value="10"/>
+		<param name="numberOfThreads" value="32"/>
 		<param name="startTime" value="00:00:00"/>
 		<param name="endTime" value="36:00:00"/>
 		<param name="stuckTime" value="30.0"/>

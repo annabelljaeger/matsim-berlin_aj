@@ -32,12 +32,13 @@ public class AddRsvAttributeToNetwork {
 					Id linkId = Id.createLinkId(linkString.trim());
 					Link link = network.getLinks().get(linkId);
 					if (link != null) {
-						link.getAttributes().putAttribute(BicycleUtils.BICYCLE_INFRASTRUCTURE_SPEED_FACTOR, 2);
+						link.getAttributes().putAttribute(BicycleUtils.BICYCLE_INFRASTRUCTURE_SPEED_FACTOR, 1.5);
 					}
 				}
 			}
 
 			new NetworkWriter(network).write(outputPath);
+			System.out.println("Network written to: " + outputPath);
 
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
