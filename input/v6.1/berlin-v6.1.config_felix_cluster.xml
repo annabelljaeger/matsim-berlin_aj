@@ -8,8 +8,8 @@
 	<module name="controller">
 		<param name="lastIteration" value="300"/>
 		<param name="overwriteFiles" value="failIfDirectoryExists"/>
-		<param name="runId" value="berlin-v6.1-bike-cluster-rsv-300-first-try-in-out"/>
-		<param name="outputDirectory" value="./output/berlin-v6.1-bike-cluster-rsv-first-try-in-out"/>
+		<param name="runId" value="berlin-v6.1-bike-cluster-RSV-300-final"/>
+		<param name="outputDirectory" value="./output/berlin-v6.1-bike-cluster-RSV-300-FORCED"/>
 		<param name="writeEventsInterval" value="50"/>
 		<param name="writePlansInterval" value="50"/>
 		<param name="routingAlgorithmType" value="SpeedyALT"/>
@@ -20,7 +20,7 @@
 		<param name="numberOfThreads" value="40"/>
 	</module>
 	<module name="network">
-		<param name="inputNetworkFile" value="./berlin-v6.1-network-rsv.xml.gz"/>
+		<param name="inputNetworkFile" value="./berlin-v6.1-network-RSV-UPDATED.xml.gz"/>
 	</module>
 	<module name="plans">
 		<param name="inputPlansFile" value="./berlin-v6.1-bike-cluster-base-fixing-too-much-bike-400.output_plans.xml.gz"/>

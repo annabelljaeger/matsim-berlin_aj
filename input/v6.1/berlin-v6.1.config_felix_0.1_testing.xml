@@ -6,7 +6,7 @@
 		<param name="mutateAroundInitialEndTimeOnly" value="true"/>
 	</module>
 	<module name="controller">
-		<param name="lastIteration" value="50"/>
+		<param name="lastIteration" value="2"/>
 		<param name="overwriteFiles" value="deleteDirectoryIfExists"/>
 		<param name="runId" value="berlin-v6.1-bike-test-0.1pct"/>
 		<param name="outputDirectory" value="./output/berlin-v6.1-run-rsv-test-0.1pct"/>
@@ -20,7 +20,7 @@
 		<param name="numberOfThreads" value="40"/>
 	</module>
 	<module name="network">
-		<param name="inputNetworkFile" value="./berlin-v6.1-network-rsv.xml.gz"/>
+		<param name="inputNetworkFile" value="./berlin-v6.1-network-RSV-UPDATED.xml.gz"/>
 	</module>
 	<module name="plans">
 		<param name="inputPlansFile" value="./berlin-v6.1-0.1pct.plans.xml.gz"/>

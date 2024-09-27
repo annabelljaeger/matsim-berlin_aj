@@ -57,7 +57,7 @@ public class OpenBerlinScenario extends MATSimApplication {
 		BicycleConfigGroup bicycleConfig = ConfigUtils.addOrGetModule(config, BicycleConfigGroup.class);
 
 		bicycleConfig.setBicycleMode("bike");
-		bicycleConfig.setBicycleMode("e-bike");
+		//bicycleConfig.setBicycleMode("e-bike");
 
 		SimWrapperConfigGroup sw = ConfigUtils.addOrGetModule(config, SimWrapperConfigGroup.class);
 
@@ -119,11 +119,13 @@ public class OpenBerlinScenario extends MATSimApplication {
 	@Override
 	protected void prepareControler(Controler controler) {
 
+		/*controler.addOverridingModule(new FELIX_CustomLinkSpeedCalcBike());*/
+
 		controler.addOverridingModule(new SimWrapperModule());
 
 		controler.addOverridingModule(new RoadPricingModule());
 
-		/*controler.addOverridingModule(new BicycleModule());*/
+		controler.addOverridingModule(new BicycleModule());
 
 		controler.addOverridingModule(new TravelTimeBinding());
 

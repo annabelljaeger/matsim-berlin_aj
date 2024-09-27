@@ -11,7 +11,8 @@
 		</attributes>
 		<length meter="2.5"/>
 		<width meter="1.0"/>
-		<maximumVelocity meterPerSecond="4.5"/>
+		<!--<maximumVelocity meterPerSecond="4.5"/>-->
+		<maximumVelocity meterPerSecond="6.75"/>
 		<passengerCarEquivalents pce="0.3"/>
 		<flowEfficiencyFactor factor="1.0"/>
 	</vehicleType>
@@ -23,7 +24,8 @@
 		</attributes>
 		<length meter="2.5"/>
 		<width meter="1.0"/>
-		<maximumVelocity meterPerSecond="3.3"/>
+		<!--<maximumVelocity meterPerSecond="3.3"/>-->
+		<maximumVelocity meterPerSecond="4.95"/>
 		<passengerCarEquivalents pce="0.3"/>
 		<flowEfficiencyFactor factor="1.0"/>
 	</vehicleType>

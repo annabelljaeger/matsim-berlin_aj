@@ -20,7 +20,7 @@ public class AddRsvAttributeToNetwork {
 	public static void main(String[] args) {
 
 		Network network = NetworkUtils.readNetwork("./input/v6.1/berlin-v6.1-network-bike-e_bike-added.xml.gz");
-		String outputPath = "./input/v6.1/berlin-v6.1-network-rsv.xml.gz";
+		String outputPath = "./input/v6.1/berlin-v6.1-network-RSV-UPDATED.xml.gz";
 		String csvPath = "./src/main/java/org/matsim/prepare/network/RSV_Links.csv";
 		String line;
 
@@ -32,13 +32,10 @@ public class AddRsvAttributeToNetwork {
 					Id linkId = Id.createLinkId(linkString.trim());
 					Link link = network.getLinks().get(linkId);
 					if (link != null) {
-						link.getAttributes().putAttribute(BicycleUtils.BICYCLE_INFRASTRUCTURE_SPEED_FACTOR, 1.5);
+						link.getAttributes().putAttribute(BicycleUtils.BICYCLE_INFRASTRUCTURE_SPEED_FACTOR, 1.0);
 					}
 				}
 			}
-
-			new NetworkWriter(network).write(outputPath);
-			System.out.println("Network written to: " + outputPath);
 
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
@@ -46,6 +43,14 @@ public class AddRsvAttributeToNetwork {
 			throw new RuntimeException(e);
 		}
 
+		for (Link link : network.getLinks().values()){
+			if(link.getAttributes().getAttribute("bicycleInfrastructureSpeedFactor") == null){
+				link.getAttributes().putAttribute(BicycleUtils.BICYCLE_INFRASTRUCTURE_SPEED_FACTOR, 0.66);
+			}
+		}
+
+		new NetworkWriter(network).write(outputPath);
+		System.out.println("Network written to: " + outputPath);
 	}
 
 }

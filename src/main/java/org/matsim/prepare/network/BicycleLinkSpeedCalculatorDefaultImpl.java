@@ -1,4 +1,4 @@
-package org.matsim.contrib.bicycle;
+package org.matsim.prepare.network;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,26 +14,25 @@ import org.matsim.vehicles.VehicleType;
 
 import java.util.Objects;
 
-public final class BicycleLinkSpeedCalculatorDefaultImpl implements BicycleLinkSpeedCalculator {
+public final class BicycleLinkSpeedCalculatorDefaultImpl //implements BicycleLinkSpeedCalculator
+	{
 	private static final Logger log = LogManager.getLogger(BicycleLinkSpeedCalculatorDefaultImpl.class );
-	@Inject private BicycleConfigGroup bicycleConfigGroup;
+	//@Inject private BicycleConfigGroup bicycleConfigGroup;
 	@Inject private QSimConfigGroup qSimConfigGroup;
 	@Inject private Config config;
 	@Inject private BicycleLinkSpeedCalculatorDefaultImpl() {
 	}
 
-	/**
-	 * for unit testing
-	 */
-	BicycleLinkSpeedCalculatorDefaultImpl( Config config ) {
+
+	BicycleLinkSpeedCalculatorDefaultImpl( Config config ) {/*
 		this.bicycleConfigGroup = ConfigUtils.addOrGetModule( config, BicycleConfigGroup.class );
-		this.qSimConfigGroup = config.qsim();
+		//this.qSimConfigGroup = config.qsim();
 	}
 
 	@Override
-	public double getMaximumVelocity(QVehicle qVehicle, Link link, double time) {
-		if (isBike(qVehicle)){
-			return getMaximumVelocityForLink( link, qVehicle.getVehicle() );
+	public double getMaximumVelocity(Vehicle vehicle, Link link, double time) {
+		if (isBike(vehicle)){
+			return getMaximumVelocityForLink( link, vehicle.getVehicle() );
 		} else{
 			return Double.NaN;
 			// (this now works because the link speed calculator returns the default for all combinations of (vehicle, link, time) that
@@ -41,7 +40,7 @@ public final class BicycleLinkSpeedCalculatorDefaultImpl implements BicycleLinkS
 		}
 
 	}
-	@Override
+	*//*@Override
 	public double getMaximumVelocityForLink(Link link, Vehicle vehicle) {
 
 		// prior to matsim 12.0 routers would not pass a vehicle. This is why we have a fallback for a default value from the config
@@ -51,19 +50,19 @@ public final class BicycleLinkSpeedCalculatorDefaultImpl implements BicycleLinkS
 		double gradientFactor = computeGradientFactor(link);
 		double speed = maxBicycleSpeed * bicycleInfrastructureFactor * surfaceFactor * gradientFactor;
 		return Math.min(speed, link.getFreespeed());
-	}
+	}*//*
 
 //	private double getDefaultMaximumVelocity(QVehicle qVehicle, Link link, double time) {
 //		return Math.min(qVehicle.getMaximumVelocity(), link.getFreespeed(time));
 //	}
 
-	/**
+	*//**
 	 * Based on "Flügel et al. -- Empirical speed models for cycling in the Oslo road network" (not yet published!)
 	 * Positive gradients (uphill): Roughly linear decrease in speed with increasing gradient
 	 * At 9% gradient, cyclists are 42.7% slower
 	 * Negative gradients (downhill):
 	 * Not linear; highest speeds at 5% or 6% gradient; at gradients higher than 6% braking
-	 */
+	 *//*
 	private double computeGradientFactor(Link link) {
 
 		double factor = 1;
@@ -137,25 +136,28 @@ public final class BicycleLinkSpeedCalculatorDefaultImpl implements BicycleLinkS
 	}
 
 	private double computeInfrastructureFactor(Link link) {
-		var speedFactor = link.getAttributes().getAttribute(BicycleUtils.BICYCLE_INFRASTRUCTURE_SPEED_FACTOR);
-		return speedFactor == null ? 1.0 : Double.parseDouble(speedFactor.toString());
+		if (hasNotAttribute(link,"bicycleInfrastructureSpeedFactor")) {
+			var speedFactor = link.getAttributes().getAttribute(BicycleUtils.BICYCLE_INFRASTRUCTURE_SPEED_FACTOR);
+			return speedFactor == null ? 1.0 : Double.parseDouble(speedFactor.toString());
+		}
 	}
 
 	private boolean hasNotAttribute(Link link, String attributeName) {
 		return link.getAttributes().getAttribute(attributeName) == null;
 	}
 
-	private boolean isBike(QVehicle qVehicle) {
-//		return qVehicle.getVehicle().getType().getId().toString().equals(bicycleConfigGroup.getBicycleMode());
+	private boolean isBike(Vehicle vehicle) {
+//		return vehicle.getVehicle().getType().getId().toString().equals(bicycleConfigGroup.getBicycleMode());
 
 		// the above is what I found.  With mode vehicles, the vehicle ID is indeed abused for the model.  But we should not rely on this.
 		// Unfortunately, backwards compatibility may now fail ... I have seen mode vehicles different from car but having car as network
 		// mode.  kai, jun'23
 
-		final VehicleType vehicleType = qVehicle.getVehicle().getType();
+		final VehicleType vehicleType = vehicle.VehicleUtils.getType();
+		Scenario scenario =
 
 		// the below consistentcy check is to broad; need a version that is more narrow ...
-		
+
 //		if ( qSimConfigGroup.getVehiclesSource()== QSimConfigGroup.VehiclesSource.modeVehicleTypesFromVehiclesData ) {
 //			if ( !vehicleType.getId().toString().equals( vehicleType.getNetworkMode() ) ) {
 //				throw new RuntimeException( "You are using mode vehicles but the network mode of the vehicle type is wrong: vehType.id=" + vehicleType.getId()
@@ -165,7 +167,7 @@ public final class BicycleLinkSpeedCalculatorDefaultImpl implements BicycleLinkS
 
 		// ... more narrow version coming here ...
 		if (
-				qVehicle.getVehicle().getType().getId().toString().equals( bicycleConfigGroup.getBicycleMode() )
+				vehicle.getVehicle().getType().getId().toString().equals( bicycleConfigGroup.getBicycleMode() )
 									      && !vehicleType.getNetworkMode().equals( bicycleConfigGroup.getBicycleMode() )
 		) {
 				throw new RuntimeException( "You are using mode vehicles but the network mode of the vehicle type is wrong: vehType.id=" + vehicleType.getId()
@@ -174,5 +176,5 @@ public final class BicycleLinkSpeedCalculatorDefaultImpl implements BicycleLinkS
 
 
 		return vehicleType.getNetworkMode().equals(bicycleConfigGroup.getBicycleMode() );
-	}
-}
+	}*/
+}}
