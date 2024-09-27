@@ -8,8 +8,8 @@
 	<module name="controller">
 		<param name="lastIteration" value="300"/>
 		<param name="overwriteFiles" value="failIfDirectoryExists"/>
-		<param name="runId" value="berlin-v6.1-bike-cluster-RSV-300-final"/>
-		<param name="outputDirectory" value="./output/berlin-v6.1-bike-cluster-RSV-300-FORCED"/>
+		<param name="runId" value="berlin-v6.1-kombi-300-first"/>
+		<param name="outputDirectory" value="./output/berlin-v6.1-bike-cluster-kombi-300-first"/>
 		<param name="writeEventsInterval" value="50"/>
 		<param name="writePlansInterval" value="50"/>
 		<param name="routingAlgorithmType" value="SpeedyALT"/>
@@ -70,8 +70,8 @@
 	</module>
 
 	<module name="roadpricing">
-		<param name ="enforcementEfficiency" value="0.6"/>
-		<param name="tollLinksFile" value="./berlin_noToll_roadpricing.xml"/>
+		<param name ="enforcementEfficiency" value="0.9"/>
+		<param name="tollLinksFile" value="./berlin_distanceAndTime_roadpricing.xml"/>
 	</module>
 
 	<module name="subtourModeChoice">
