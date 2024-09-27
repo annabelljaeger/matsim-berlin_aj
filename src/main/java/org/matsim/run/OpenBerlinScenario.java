@@ -22,6 +22,7 @@ import org.matsim.core.replanning.strategies.DefaultPlanStrategiesModule;
 import org.matsim.core.router.costcalculators.TravelDisutilityFactory;
 import org.matsim.core.router.util.TravelTime;
 import org.matsim.prepare.RunOpenBerlinCalibration;
+import org.matsim.prepare.population.AssignIncome;
 import org.matsim.run.scoring.AdvancedScoringConfigGroup;
 import org.matsim.run.scoring.AdvancedScoringModule;
 import org.matsim.simwrapper.SimWrapperConfigGroup;
@@ -33,6 +34,8 @@ import java.util.List;
 @CommandLine.Command(header = ":: Open Berlin Scenario ::", version = OpenBerlinScenario.VERSION, mixinStandardHelpOptions = true)
 public class OpenBerlinScenario extends MATSimApplication {
 
+	private static final Logger log = LogManager.getLogger(RunOpenBerlinCalibration.class);
+
 	public static final String VERSION = "6.1";
 	public static final String CRS = "EPSG:25832";
 
@@ -42,7 +45,7 @@ public class OpenBerlinScenario extends MATSimApplication {
 	private final SampleOptions sample = new SampleOptions(10, 25, 3, 1);
 
 	public OpenBerlinScenario() {
-		super(String.format("input/v%s/berlin-v%s.config_felix_0.1_testing.xml", VERSION, VERSION));
+		super(String.format("input/v%s/berlin-v%s.config_Maut_Cluster.xml", VERSION, VERSION));
 	}
 
 	public static void main(String[] args) {
@@ -114,12 +117,16 @@ public class OpenBerlinScenario extends MATSimApplication {
 
 	@Override
 	protected void prepareScenario(Scenario scenario) {
+
+		AssignIncome income = new AssignIncome();
+
+		// Calculate the income for each person, in next versions this might also be done during creation of the population
+		scenario.getPopulation().getPersons().values().forEach(income::run);
+
 	}
 
 	@Override
 	protected void prepareControler(Controler controler) {
-
-		/*controler.addOverridingModule(new FELIX_CustomLinkSpeedCalcBike());*/
 
 		controler.addOverridingModule(new SimWrapperModule());
 
